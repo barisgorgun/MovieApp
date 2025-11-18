@@ -12,13 +12,9 @@ struct MovieCard: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: movie.posterURL) { img in
-                img.resizable()
-            } placeholder: {
-                Rectangle().fill(Color.gray.opacity(0.3))
-            }
-            .frame(width: 130, height: 180)
-            .cornerRadius(12)
+            CachedAsyncImage(url: movie.posterURL)
+                .frame(width: 130, height: 180)
+                .cornerRadius(12)
 
             Text(movie.title)
                 .font(.caption)

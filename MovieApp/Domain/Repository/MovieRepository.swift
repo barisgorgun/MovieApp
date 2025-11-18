@@ -12,4 +12,5 @@ protocol MovieRepository {
     func fetchNowPlaying(page: Int) async throws -> MoviePage
     func searchMovies(query: String) async throws -> MoviePage
     func fetchDetail(id: Int) async throws -> MovieDetail
+    func fetchMovieCredits(id: Int) async throws -> [Cast]
 }

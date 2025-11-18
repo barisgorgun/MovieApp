@@ -9,9 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var viewModel: HomeViewModel
+    private let diContainer: AppDIContainer
 
-    init(viewModel: HomeViewModel) {
+    init(viewModel: HomeViewModel, diContainer: AppDIContainer) {
         _viewModel = StateObject(wrappedValue: viewModel)
+        self.diContainer = diContainer
     }
 
     var body: some View {
@@ -38,6 +40,9 @@ struct HomeView: View {
 
                 }
                 .padding(.horizontal)
+            }
+            .navigationDestination(for: Movie.self) { movie in
+                MovieDetailView(viewModel: diContainer.makeMovieDetailViewModel(movieID: movie.id))
             }
             .navigationTitle("Movies")
             .task {

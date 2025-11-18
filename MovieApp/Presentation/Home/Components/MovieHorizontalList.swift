@@ -16,10 +16,12 @@ struct MovieHorizontalList: View {
             LazyHStack(spacing: 16) {
 
                 ForEach(Array(state.movies.enumerated()), id: \.element.id) { index, movie in
-                    MovieCard(movie: movie)
-                        .onAppear {
-                            triggerLoadMoreIfNeeded(currentIndex: index)
-                        }
+                    NavigationLink(value: movie) {
+                        MovieCard(movie: movie)
+                    }
+                    .onAppear {
+                        triggerLoadMoreIfNeeded(currentIndex: index)
+                    }
                 }
 
                 if state.status == .loadingMore {

@@ -12,4 +12,9 @@ struct Cast: Identifiable, Equatable {
     let name: String
     let character: String
     let profilePath: String?
+
+    var profileURL: URL? {
+        guard let profilePath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(profilePath)")
+    }
 }

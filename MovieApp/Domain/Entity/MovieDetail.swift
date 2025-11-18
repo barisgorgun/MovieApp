@@ -14,10 +14,15 @@ struct MovieDetail: Identifiable, Equatable {
     let posterPath: String?
     let backdropPath: String?
     let voteAverage: Double
+    let tagline: String?
     let runtime: Int?
     let releaseDate: String?
     let genres: [Genre]
     let cast: [Cast]
+
+    var posterURL: URL? {
+        URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")
+    }
 
     init(
         id: Int,
@@ -26,6 +31,7 @@ struct MovieDetail: Identifiable, Equatable {
         posterPath: String?,
         backdropPath: String?,
         voteAverage: Double,
+        tagline: String?,
         runtime: Int?,
         releaseDate: String?,
         genres: [Genre],
@@ -37,6 +43,7 @@ struct MovieDetail: Identifiable, Equatable {
         self.posterPath = posterPath
         self.backdropPath = backdropPath
         self.voteAverage = voteAverage
+        self.tagline = tagline
         self.runtime = runtime
         self.releaseDate = releaseDate
         self.genres = genres

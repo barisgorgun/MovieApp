@@ -41,4 +41,10 @@ final class MovieRepositoryImpl: MovieRepository {
         let cast = creditDTO.toDomain()
         return detailDTO.toDomain(cast: cast)
     }
+
+    func fetchMovieCredits(id: Int) async throws -> [Cast] {
+        let endPoint = MovieCreditsEndpoint(id: id)
+        let creditDTO: CreditsResponseDTO = try await apiService.request(endPoint)
+        return creditDTO.toDomain()
+    }
 }

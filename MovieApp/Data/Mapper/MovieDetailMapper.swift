@@ -17,6 +17,7 @@ extension MovieDetailDTO {
             posterPath: posterPath,
             backdropPath: backdropPath,
             voteAverage: voteAverage ?? 0.0,
+            tagline: tagline,
             runtime: runtime,
             releaseDate: releaseDate,
             genres: genres?.map { $0.toDomain() } ?? [],

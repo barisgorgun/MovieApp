@@ -14,6 +14,7 @@ struct MovieDetailDTO: Decodable {
     let posterPath: String?
     let backdropPath: String?
     let voteAverage: Double?
+    let tagline: String?
     let runtime: Int?
     let releaseDate: String?
     let genres: [GenreDTO]?
@@ -25,6 +26,7 @@ struct MovieDetailDTO: Decodable {
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
         case voteAverage = "vote_average"
+        case tagline
         case runtime
         case releaseDate = "release_date"
         case genres
