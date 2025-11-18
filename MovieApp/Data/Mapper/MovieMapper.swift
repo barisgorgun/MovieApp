@@ -22,7 +22,11 @@ extension MovieDTO {
 
 extension MovieListResponseDTO {
     
-    func toDomain() -> [Movie] {
-        results.map { $0.toDomain() }
+    func toDomain() -> MoviePage {
+        MoviePage(
+            movies: results.map { $0.toDomain() },
+            page: page ?? 0,
+            totalPages: totalPages ?? 0
+        )
     }
 }

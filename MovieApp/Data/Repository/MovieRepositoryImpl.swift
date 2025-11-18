@@ -14,22 +14,22 @@ final class MovieRepositoryImpl: MovieRepository {
         self.apiService = apiService
     }
 
-    func fetchTopRated(page: Int) async throws -> [Movie] {
+    func fetchTopRated(page: Int) async throws -> MoviePage {
         let dto: MovieListResponseDTO = try await apiService.request(TopRatedEndpoint(page: page))
         return dto.toDomain()
     }
     
-    func fetchPopular(page: Int) async throws -> [Movie] {
+    func fetchPopular(page: Int) async throws -> MoviePage {
         let dto: MovieListResponseDTO = try await apiService.request(PopularEndpoint(page: page))
         return dto.toDomain( )
     }
     
-    func fetchNowPlaying(page: Int) async throws -> [Movie] {
+    func fetchNowPlaying(page: Int) async throws -> MoviePage {
         let dto: MovieListResponseDTO = try await apiService.request(NowPlayingEndpoint(page: page))
         return dto.toDomain( )
     }
     
-    func searchMovies(query: String) async throws -> [Movie] {
+    func searchMovies(query: String) async throws -> MoviePage {
         let dto: MovieListResponseDTO = try await apiService.request(SearchMoviesEndpoint(query: query))
         return dto.toDomain()
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FetchNowPlayingUseCase {
-    func execute(page: Int) async throws -> [Movie]
+    func execute(page: Int) async throws -> MoviePage
 }
 
 final class FetchNowPlayingUseCaseImpl: FetchNowPlayingUseCase {
@@ -18,7 +18,7 @@ final class FetchNowPlayingUseCaseImpl: FetchNowPlayingUseCase {
         self.repository = repository
     }
 
-    func execute(page: Int) async throws -> [Movie] {
+    func execute(page: Int) async throws -> MoviePage {
         try await repository.fetchNowPlaying(page: page)
     }
 }

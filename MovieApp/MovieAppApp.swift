@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct MovieAppApp: App {
+    private let diContainer: AppDIContainer
+
+    init() {
+            let apiService = APIServiceImpl()
+            let movieRepository = MovieRepositoryImpl(apiService: apiService)
+
+            self.diContainer = AppDIContainer(movieRepository: movieRepository)
+        }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(viewModel: diContainer.makeHomeViewModel())
         }
     }
 }

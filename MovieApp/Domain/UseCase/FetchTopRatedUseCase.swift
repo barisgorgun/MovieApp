@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FetchTopRatedUseCase {
-    func execute(page: Int) async throws -> [Movie]
+    func execute(page: Int) async throws -> MoviePage
 }
 
 final class FetchTopRatedUseCaseImpl: FetchTopRatedUseCase {
@@ -18,7 +18,7 @@ final class FetchTopRatedUseCaseImpl: FetchTopRatedUseCase {
         self.repository = repository
     }
 
-    func execute(page: Int) async throws -> [Movie] {
+    func execute(page: Int) async throws -> MoviePage {
         try await repository.fetchTopRated(page: page)
     }
 }
