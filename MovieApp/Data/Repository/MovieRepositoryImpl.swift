@@ -47,4 +47,11 @@ final class MovieRepositoryImpl: MovieRepository {
         let creditDTO: CreditsResponseDTO = try await apiService.request(endPoint)
         return creditDTO.toDomain()
     }
+
+    func fetchRecommendations(movieID: Int, page: Int) async throws -> MoviePage {
+        let endPoint = MovieRecommendationsEndpoint(movieID: movieID, page: page)
+        let recommendationsDTO: MovieListResponseDTO = try await apiService.request(endPoint)
+
+        return recommendationsDTO.toDomain()
+    }
 }

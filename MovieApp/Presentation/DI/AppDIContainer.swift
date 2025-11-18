@@ -45,6 +45,10 @@ final class AppDIContainer {
         FetchMovieCreditsUseCaseImpl(repository: movieRepository)
     }
 
+    func makeFetchRecommendationsUseCase() -> FetchRecommendationsUseCase {
+        FetchRecommendationsUseCaseImpl(movieRepository: movieRepository)
+    }
+
     func makeHomeViewModel() -> HomeViewModel {
         HomeViewModel(
             fetchTopRatedUseCase: makeFetchTopRatedUseCase(),
@@ -57,7 +61,8 @@ final class AppDIContainer {
         MovieDetailViewModel(
             movieID: movieID,
             fetchMovieDetailUseCase: makeFetchMovieDetailUseCase(),
-            fetchMovieCreditsUseCase: makeFetchMovieCreditsUseCase()
+            fetchMovieCreditsUseCase: makeFetchMovieCreditsUseCase(),
+            fetchRecommendationsUseCase: makeFetchRecommendationsUseCase()
         )
     }
 }

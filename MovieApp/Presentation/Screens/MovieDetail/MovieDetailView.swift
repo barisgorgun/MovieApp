@@ -43,6 +43,11 @@ struct MovieDetailView: View {
 
                 CastSection(cast: viewModel.cast)
 
+                RecommendationSection(
+                    state: viewModel.recommendations,
+                    onLoadMore: { await viewModel.loadRecommendations() }
+                )
+
                 Spacer()
             }
             .padding()
