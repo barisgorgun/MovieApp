@@ -14,17 +14,29 @@
 		A832DAD42ECC67A700690DA4 /* Exceptions for "MovieApp" folder in "MovieApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Config/Release.example.xcconfig,
 				Info.plist,
 			);
 			target = A88AC4932ECC4FF8002CF5F9 /* MovieApp */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		A832DAD92ECC6B1A00690DA4 /* Exceptions for "MovieApp" folder in "Compile Sources" phase from "MovieApp" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = A88AC4902ECC4FF8002CF5F9 /* Sources */;
+			membershipExceptions = (
+				Config/Release.example.xcconfig,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A88AC4962ECC4FF8002CF5F9 /* MovieApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				A832DAD42ECC67A700690DA4 /* Exceptions for "MovieApp" folder in "MovieApp" target */,
+				A832DAD92ECC6B1A00690DA4 /* Exceptions for "MovieApp" folder in "Compile Sources" phase from "MovieApp" target */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";

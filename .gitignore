@@ -1,0 +1,7 @@
+# Ignore real secrets
+Config/Debug.xcconfig
+Config/Release.xcconfig
+
+# Allow example configs
+!Config/Debug.example.xcconfig
+!Config/Release.example.xcconfig
