@@ -1,8 +1,0 @@
-//
-//  Release.xcconfig
-//  MovieApp
-//
-//  Created by Gorgun, Baris on 18.11.2025.
-//
-
-TMDB_TOKEN = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZGUwOTRkYjE2ODk4MDVkNWIwNzg3ZWE5YmQ3NDBkNyIsIm5iZiI6MTU5MjA3ODg0MC42ODIsInN1YiI6IjVlZTUzMWY4M2ZmMmRmMDAyMDY3MWRjOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3RRuEoDAvEFlRnVRgmwzlxPGw9DkEs-XZ_kFSD2ZXc4
