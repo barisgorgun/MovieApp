@@ -9,13 +9,28 @@ import SwiftUI
 
 struct MovieCard: View {
     let movie: Movie
+    @EnvironmentObject var favoritesStore: FavoritesStore
 
     var body: some View {
         VStack(alignment: .leading) {
-            CachedAsyncImage(url: movie.posterURL)
-                .frame(width: 130, height: 180)
-                .cornerRadius(12)
+            ZStack(alignment: .topTrailing) {
+                CachedAsyncImage(url: movie.posterURL)
+                    .frame(width: 130, height: 180)
+                    .cornerRadius(12)
 
+                Button {
+                    Task {
+                        await favoritesStore.toggle(movie: movie.toFavoriteMovie())
+                    }
+                } label: {
+                    Image(systemName: favoritesStore.isFavorite(movie.id) ? "heart.fill" : "heart")
+                        .padding(6)
+                        .foregroundColor(.red)
+                        .background(Color.white.opacity(0.7))
+                        .clipShape(Circle())
+                        .padding(6)
+                }
+            }
             Text(movie.title)
                 .font(.caption)
                 .foregroundColor(.primary)

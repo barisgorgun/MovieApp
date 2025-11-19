@@ -18,3 +18,13 @@ struct Movie: Identifiable, Hashable, Equatable {
         URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")
     }
 }
+
+extension Movie {
+    func toFavoriteMovie() -> FavoriteMovie {
+        FavoriteMovie(
+            id: id,
+            name: title,
+            posterPath: posterPath
+        )
+    }
+}

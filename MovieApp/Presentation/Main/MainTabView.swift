@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct MainTabView: View {
-
     private let diContainer: AppDIContainer
+    @EnvironmentObject var favoritesStore: FavoritesStore
+
 
     init(diContainer: AppDIContainer) {
         self.diContainer = diContainer
@@ -32,7 +33,7 @@ struct MainTabView: View {
             }
 
             NavigationStack {
-                Text("Favorites Coming Soon")
+                FavoritesView(diContainer: diContainer)
             }
             .tabItem {
                 Label("Favorites", systemImage: "star.fill")

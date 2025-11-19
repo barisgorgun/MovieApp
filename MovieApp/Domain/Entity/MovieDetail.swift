@@ -50,3 +50,13 @@ struct MovieDetail: Identifiable, Equatable {
         self.cast = cast
     }
 }
+
+extension MovieDetail {
+    func toFavoriteMovie() -> FavoriteMovie {
+        FavoriteMovie(
+            id: id,
+            name: title,
+            posterPath: posterPath
+        )
+    }
+}

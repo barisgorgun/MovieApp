@@ -13,10 +13,18 @@ final class AppDIContainer {
 
     private let movieRepository: MovieRepository
 
+    // MARK: - Favorites
+
+    private let favoritesStorage: FavoritesStorageProtocol
+    private let favoritesRepository: FavoritesRepository
+
     // MARK: - Init
 
-    init(movieRepository: MovieRepository) {
+    init(
+        movieRepository: MovieRepository) {
         self.movieRepository = movieRepository
+        self.favoritesStorage = FavoritesStorageImpl()
+        self.favoritesRepository = FavoritesRepositoryImpl(storage: favoritesStorage)
     }
 
     // MARK: - Use Case Factories
@@ -49,6 +57,8 @@ final class AppDIContainer {
         FetchRecommendationsUseCaseImpl(movieRepository: movieRepository)
     }
 
+    // MARK: - ViewModel Factories
+
     func makeHomeViewModel() -> HomeViewModel {
         HomeViewModel(
             fetchTopRatedUseCase: makeFetchTopRatedUseCase(),
@@ -68,5 +78,32 @@ final class AppDIContainer {
 
     func makeSearchViewModel() -> SearchViewModel {
         SearchViewModel(searchMoviesUseCase: makeSearchMoviesUseCase())
+    }
+
+    func makeFavoritesStore() -> FavoritesStore {
+        FavoritesStore(
+            getFavoritesUseCase: makeGetFavoritesUseCase(),
+            removeFavoriteUseCase: makeRemoveFavoriteUseCase(),
+            addToFavoritesUseCase: makeAddToFavoritesUseCase(),
+            isFavoriteUseCase: makeIsFavoriteUseCase()
+        )
+    }
+
+    // MARK: - Favorites UseCase Factories
+
+    func makeGetFavoritesUseCase() -> GetFavoritesUseCase {
+        GetFavoritesUseCaseImpl(favoritesRepository: favoritesRepository)
+    }
+
+    func makeAddToFavoritesUseCase() -> AddToFavoritesUseCase {
+        AddToFavoritesUseCaseImpl(repository: favoritesRepository)
+    }
+
+    func makeRemoveFavoriteUseCase() -> RemoveFavoriteUseCase {
+        RemoveFavoriteUseCaseImpl(favoritesRepository: favoritesRepository)
+    }
+
+    func makeIsFavoriteUseCase() -> IsFavoriteUseCase {
+        IsFavoriteUseCaseImpl(repository: favoritesRepository)
     }
 }

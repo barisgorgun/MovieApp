@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieDetailView: View {
     @StateObject var viewModel: MovieDetailViewModel
+    @EnvironmentObject var favoritesStore: FavoritesStore
     private let movieID: Int
 
     init(movieID: Int, diContainer: AppDIContainer) {
@@ -35,6 +36,21 @@ struct MovieDetailView: View {
         }
         .navigationTitle("Movie Detail")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+
+                    if let movie = viewModel.state.movie {
+                        Task { await favoritesStore.toggle(movie: movie.toFavoriteMovie())
+                        }
+                    }
+                } label: {
+                    Image(systemName: favoritesStore.isFavorite(movieID) ? "heart.fill" : "heart")
+                        .foregroundColor(.red)
+                        .animation(.easeInOut, value: favoritesStore.favorites)
+                }
+            }
+        }
     }
 
     private var detailContent: some View {
