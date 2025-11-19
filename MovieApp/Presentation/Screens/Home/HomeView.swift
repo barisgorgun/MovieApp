@@ -17,7 +17,6 @@ struct HomeView: View {
     }
 
     var body: some View {
-        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     HomeSectionView(
@@ -42,12 +41,11 @@ struct HomeView: View {
                 .padding(.horizontal)
             }
             .navigationDestination(for: Movie.self) { movie in
-                MovieDetailView(viewModel: diContainer.makeMovieDetailViewModel(movieID: movie.id))
+                MovieDetailView(movieID: movie.id, diContainer: diContainer)
             }
             .navigationTitle("Movies")
             .task {
                 await viewModel.loadInitialData()
             }
-        }
     }
 }

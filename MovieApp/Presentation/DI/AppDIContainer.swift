@@ -65,4 +65,8 @@ final class AppDIContainer {
             fetchRecommendationsUseCase: makeFetchRecommendationsUseCase()
         )
     }
+
+    func makeSearchViewModel() -> SearchViewModel {
+        SearchViewModel(searchMoviesUseCase: makeSearchMoviesUseCase())
+    }
 }

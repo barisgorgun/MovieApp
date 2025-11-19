@@ -29,8 +29,8 @@ final class MovieRepositoryImpl: MovieRepository {
         return dto.toDomain( )
     }
     
-    func searchMovies(query: String) async throws -> MoviePage {
-        let dto: MovieListResponseDTO = try await apiService.request(SearchMoviesEndpoint(query: query))
+    func searchMovies(query: String, page: Int) async throws -> MoviePage {
+        let dto: MovieListResponseDTO = try await apiService.request(SearchMoviesEndpoint(query: query, page: page))
         return dto.toDomain()
     }
     

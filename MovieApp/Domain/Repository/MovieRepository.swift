@@ -10,7 +10,7 @@ protocol MovieRepository {
     func fetchTopRated(page: Int) async throws -> MoviePage
     func fetchPopular(page: Int) async throws -> MoviePage
     func fetchNowPlaying(page: Int) async throws -> MoviePage
-    func searchMovies(query: String) async throws -> MoviePage
+    func searchMovies(query: String, page: Int) async throws -> MoviePage
     func fetchDetail(id: Int) async throws -> MovieDetail
     func fetchMovieCredits(id: Int) async throws -> [Cast]
     func fetchRecommendations(movieID: Int, page: Int) async throws -> MoviePage

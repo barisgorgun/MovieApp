@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchMoviesUseCase {
-    func execute(query: String) async throws -> MoviePage
+    func execute(query: String, page: Int) async throws -> MoviePage
 }
 
 final class SearchMoviesUseCaseImpl: SearchMoviesUseCase {
@@ -18,7 +18,7 @@ final class SearchMoviesUseCaseImpl: SearchMoviesUseCase {
         self.repository = repository
     }
 
-    func execute(query: String) async throws -> MoviePage {
-        try await repository.searchMovies(query: query)
+    func execute(query: String, page: Int) async throws -> MoviePage {
+        try await repository.searchMovies(query: query, page: page)
     }
 }

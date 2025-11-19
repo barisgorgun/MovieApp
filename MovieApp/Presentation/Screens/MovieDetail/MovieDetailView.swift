@@ -9,9 +9,13 @@ import SwiftUI
 
 struct MovieDetailView: View {
     @StateObject var viewModel: MovieDetailViewModel
+    private let movieID: Int
 
-    init(viewModel: MovieDetailViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+    init(movieID: Int, diContainer: AppDIContainer) {
+        self.movieID = movieID
+        _viewModel = StateObject(
+            wrappedValue: diContainer.makeMovieDetailViewModel(movieID: movieID)
+        )
     }
 
     var body: some View {

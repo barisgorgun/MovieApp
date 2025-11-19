@@ -20,7 +20,7 @@ struct MovieAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: diContainer.makeHomeViewModel(), diContainer: diContainer)
+            MainTabView(diContainer: diContainer)
         }
     }
 }
