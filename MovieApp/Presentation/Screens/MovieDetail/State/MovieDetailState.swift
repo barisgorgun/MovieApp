@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct MovieDetailState {
+struct MovieDetailState: Equatable {
     var status: Status = .idle
     var movie: MovieDetail?
 
-    enum Status {
+    enum Status: Equatable {
         case idle
         case loading
         case loaded

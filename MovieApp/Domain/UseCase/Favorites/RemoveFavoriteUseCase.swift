@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol RemoveFavoriteUseCase {
+protocol RemoveFavoriteUseCase: Sendable {
     func execute(_ movieID: Int) async
 }
 

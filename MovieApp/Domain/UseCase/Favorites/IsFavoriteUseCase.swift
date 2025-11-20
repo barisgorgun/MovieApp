@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol IsFavoriteUseCase {
+protocol IsFavoriteUseCase: Sendable {
     func execute(_ movieID: Int) async -> Bool
 }
 

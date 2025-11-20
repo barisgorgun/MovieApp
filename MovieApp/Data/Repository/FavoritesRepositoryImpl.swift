@@ -35,7 +35,7 @@ final class FavoritesRepositoryImpl: FavoritesRepository {
     }
     
     func isFavorite(_ movieID: Int) async -> Bool {
-        var current = await storage.loadFavorites()
+        let current = await storage.loadFavorites()
         return current.contains(where: { $0.id == movieID })
     }
 }

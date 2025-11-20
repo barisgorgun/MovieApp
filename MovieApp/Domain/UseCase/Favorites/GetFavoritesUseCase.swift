@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GetFavoritesUseCase {
+protocol GetFavoritesUseCase: Sendable {
     func execute() async -> [FavoriteMovie]
 }
 
