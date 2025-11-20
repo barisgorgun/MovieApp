@@ -195,13 +195,16 @@ This ensures:
 
 ---
 
-## 📸 Screenshots (Placeholder)
+## 📱 App Screenshots
 
-```markdown
-![Home](Screenshots/home.png)
-![Detail](Screenshots/detail.png)
-![Search](Screenshots/search.png)
-![Favorites](Screenshots/favorites.png)
+### 🎬 Home
+<img src="./Assets/Screenshots/home.png" width="300"/>
+
+### 📄 Movie Detail
+<img src="./Assets/Screenshots/detail.png" width="300"/>
+
+### 🔍 Search
+<img src="./Assets/Screenshots/search.png" width="300"/>
 ```
 
 ---

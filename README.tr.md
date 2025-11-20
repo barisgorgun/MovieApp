@@ -193,13 +193,17 @@ Bu sayede:
 
 ---
 
-## 📸 Ekran Görüntüleri (Placeholder)
+## 📱 Uygulama Ekran Görüntüleri
 
-```markdown
-![Home](Screenshots/home.png)
-![Detail](Screenshots/detail.png)
-![Search](Screenshots/search.png)
-![Favorites](Screenshots/favorites.png)
+### 🎬 Ana Sayfa
+<img src="./Assets/Screenshots/home.png" width="300"/>
+
+### 📄 Film Detay
+<img src="./Assets/Screenshots/detail.png" width="300"/>
+
+### 🔍 Arama
+<img src="./Assets/Screenshots/search.png" width="300"/>
+
 ```
 
 ---
