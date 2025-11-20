@@ -40,7 +40,7 @@ final class MovieDetailViewModelTests: XCTestCase {
         // Given
         mockRepo.detailResult = MovieDetail.sample()
         mockRepo.creditsResult = Cast.sample()
-        mockRepo.recommendationsResult = MoviePage.sample()
+        mockRepo.recommendationsResult = MoviePage.sample(movieCount: 1)
 
         // When
         await viewModel.loadDetail()

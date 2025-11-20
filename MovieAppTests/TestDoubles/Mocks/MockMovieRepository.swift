@@ -14,6 +14,9 @@ final class MockMovieRepository: MovieRepository {
     var detailResult: MovieDetail?
     var creditsResult: [Cast]?
     var recommendationsResult: MoviePage?
+    var topRatedResult: MoviePage?
+    var popularResult: MoviePage?
+    var nowPlayingResult: MoviePage?
 
     var shouldThrowError = false
 
@@ -22,20 +25,53 @@ final class MockMovieRepository: MovieRepository {
     private(set) var fetchDetailCalled = false
     private(set) var fetchCreditsCalled = false
     private(set) var fetchRecommendationsCalled = false
+    private(set) var fetchTopRatedCalled = false
+    private(set) var fetchPopularCalled = false
+    private(set) var fetchNowPlayingCalled = false
 
 
     // MARK: - Protocol Methods
 
     func fetchTopRated(page: Int) async throws -> MoviePage {
-        recommendationsResult ?? MoviePage(movies: [], page: 0, totalPages: 0)
+        fetchTopRatedCalled = true
+
+        if shouldThrowError {
+            throw URLError(.badServerResponse)
+        }
+
+        guard let topRated = topRatedResult else {
+            throw URLError(.cannotParseResponse)
+        }
+
+        return topRated
     }
 
     func fetchPopular(page: Int) async throws -> MoviePage {
-        recommendationsResult ?? MoviePage(movies: [], page: 0, totalPages: 0)
+        fetchPopularCalled = true
+
+        if shouldThrowError {
+            throw URLError(.badServerResponse)
+        }
+
+        guard let popular = popularResult else {
+            throw URLError(.cannotParseResponse)
+        }
+
+        return popular
     }
 
     func fetchNowPlaying(page: Int) async throws -> MoviePage {
-        recommendationsResult ?? MoviePage(movies: [], page: 0, totalPages: 0)
+        fetchNowPlayingCalled = true
+
+        if shouldThrowError {
+            throw URLError(.badServerResponse)
+        }
+
+        guard let nowPlaying = nowPlayingResult else {
+            throw URLError(.cannotParseResponse)
+        }
+
+        return nowPlaying
     }
 
     func searchMovies(query: String, page: Int) async throws -> MoviePage {

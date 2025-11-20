@@ -35,19 +35,3 @@ extension Cast {
         [Cast(id: id, name: name, character: "Hero", profilePath: nil)]
     }
 }
-
-extension MoviePage {
-    static func sample(
-        page: Int = 1,
-        totalPages: Int = 2,
-        movies: [Movie] = [
-            Movie(id: 10, title: "Reco 1", overview: "", posterPath: nil, voteAverage: 7.0)
-        ]
-    ) -> MoviePage {
-        MoviePage(
-            movies: movies,
-            page: page,
-            totalPages: totalPages
-        )
-    }
-}
