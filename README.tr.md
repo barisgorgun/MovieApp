@@ -203,7 +203,6 @@ Bu sayede:
 
 ### 🔍 Arama
 <img src="./Assets/Screenshots/search.png" width="300"/>
-
 ```
 
 ---
